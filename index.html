@@ -38,24 +38,30 @@
         });//楼块图层    
 
         var map = new AMap.Map('container', {
-            center: [114.07, 22.40],  // 设置地图中心点经纬度
-            // layers: [                //使用多个图层
-            //     new AMap.TileLayer.Satellite(),
-            //     new AMap.TileLayer.RoadNet()
-            // ],
-            zooms: [4, 18],//设置地图级别范围
-            pitch:60,
-            rotation:-35,
-            features:['bg','road','point'],  //隐藏默认楼块
-            mapStyle:'amap://styles/light',
+            resizeEnable: true,
+            // center: [114.07, 22.40],  // 设置地图中心点经纬度
+             layers: [                //使用多个图层
+                new AMap.TileLayer,    
+                // .Satellite(),
+                //new AMap.TileLayer.RoadNet()
+                buildings
+            ],
+            pitch: 50,
+            rotation: -35,
+            features: ['bg', 'road', 'point'],  //隐藏默认楼块
+            mapStyle: 'amap://styles/light',
+            // layers: [new AMap.TileLayer.Satellite(), //高德默认标准图层
+            //     buildings],
+            zooms: [4, 18], //设置地图级别范围
             zoom: 13,  // 地图缩放比例
-            viewMode: '3D'
+            viewMode: '3D' 
         });
 
         var trafficLayer = new AMap.TileLayer.Tranffic({
             zIndex: 10
         });
         map.add(trafficLayer);  // 图层添加到地图
+        // map.setFeatures(['road','point']); // 多个种类要素显示
     </script>
 </body>
 
